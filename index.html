@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="site-header">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Oat Milk Store</title>
+    <link rel="stylesheet" href="static/styles-index.css">
+
+     <div id="header-content">
+        <div class="container justify-content">
+
+            <div><a href="{{ url_for('home') }}">MINOR FIGURES</a></div>
+            <div class="login-button"><a href="{{ url_for('get_login') }}">LOGIN</a></div>
+
+        </div>
+
+        <div class="container flex-col">
+            <div class="hover-container"><a href="{{ url_for('get_shop') }}">SHOP</a><img src="static/home-shop-hover.gif"></div>
+            <div class="hover-container"><a href="{{ url_for('get_play') }}">PLAY</a><img src="static/home-play-hover.gif"></div>
+            <div class="hover-container"><a href="{{ url_for('get_fm') }}">FM</a><img src="static/home-fm-hover.gif"></div>
+            <div class="hover-container">SOURCE FILES<img src="static/home-sourcefiles-hover.gif"></div>
+
+        </div>
+    </div>
+
+
+</head>
+
+<body id="body-content">
+
+    <div class="container flex-col" id="textOverlay">BARISTA OAT: FOR FULL SPECTRUM FLAVOR</div>
+
+    <div id="imageContainer">
+        <img id="currentImage" src="static/home1.webp">
+    </div>
+
+    <script>
+            // Arrays of image file paths and corresponding text
+            var imageSources = ["static/home1.webp","static/home2.webp"];
+            var textArray = ["BARISTA OAT: FOR FULL SPECTRUM FLAVOR", "↓ THE MINOR FIGURE GOLD GLASS (FOR FANCY SIPPING"];
+
+            // Index to track the current image and text
+            var currentIndex = 0;
+
+            // Function to change the image and text
+            function changeImageAndText() {
+                var image = document.getElementById("currentImage");
+                var textOverlay = document.getElementById("textOverlay");
+
+                currentIndex = (currentIndex + 1) % imageSources.length; // Cycle through images and text
+                image.src = imageSources[currentIndex];
+                image.alt = "Description of image " + (currentIndex + 1); // Update alt text
+                textOverlay.innerText = textArray[currentIndex]; // Update text
+            }
+
+            // Set interval to change image and text every 3 seconds (adjust as needed)
+            setInterval(changeImageAndText, 2000);
+    </script>
+
+
+</body>
+
+<footer id="footer-content">
+    <div class="container flex-col">
+        <div> WHOLESALE </div>
+        <div> INSTAGRAM </div>
+        <div> MAILING LIST </div>
+        <div> STORE LOCATOR </div>
+        <div> SMALL PRINT </div>
+        <div> SEARCH </div>
+        <div> CONTACT </div>
+        <div> CAREERS </div>
+        <div>© MINOR FIGURES 2024 • CREDITS</div>
+    </div>
+
+
+</footer>
+</html>
